@@ -5,10 +5,10 @@ import { NavigationContainer } from '@react-navigation/native';
 function HomeScreen({ navigation }) {
   return (
     <View 
-      style={{ 
-        flex: 1, 
-        alignItems: 'center', 
-        justifyContent: 'center' 
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
       }}
     >
       <TouchableOpacity
@@ -226,6 +226,7 @@ function CriarConta({ navigation }) {
           justifyContent: 'center',
           margin: 10
         }}
+        onPress={() => navigation.navigate('Contatos')}
       >
         <Text
           style={{
@@ -241,15 +242,114 @@ function CriarConta({ navigation }) {
   );
 }
 
+function Contatos ({ navigation }) {
+  return(
+    <View>
+      <TouchableOpacity
+        style={{
+          backgroundColor: '#BCBCBC'
+        }}
+      >
+        <Text
+          style={{fontFamily: 'Roboto', fontSize: '22px'}}
+        >
+          Alanlove
+        </Text>
+        <Text
+          style={{fontFamily: 'Roboto', fontSize: '16px'}}
+        >
+          (68)99951-9090
+        </Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+
+function Adicionar ({ navigation }) {
+  <View 
+      style={{ 
+        flex: 1, 
+        alignItems: 'center', 
+        justifyContent: 'center' 
+      }}>
+      <label
+        style={{
+          fontWeight: 'bold',
+          fontSize: '20px',
+          fontFamily: 'monospace',
+          margin: 4
+        }}
+      >
+        Nome
+      </label>
+      <input
+        placeholder='Digite seu nome'
+        style={{
+          width: '300px',
+          height: '40px',
+          borderRadius: '5px',
+          fontSize: '15px',
+          margin: 4
+        }}
+      />
+
+      <label
+        style={{
+          fontWeight: 'bold',
+          fontSize: '20px',
+          fontFamily: 'monospace',
+          margin: 4
+        }}
+      >
+        Telefone
+      </label>
+      <input
+        placeholder='Digite seu telefone'
+        style={{
+          width: '300px',
+          height: '40px',
+          borderRadius: '5px',
+          fontSize: '15px',
+          margin: 4
+        }}
+      />
+  
+      <TouchableOpacity
+        style={{
+          backgroundColor: 'blue',
+          width: '300px',
+          height: '40px',
+          borderRadius: '20px',
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: 10
+        }}
+      // onPress={() => navigation.navigate('Criar conta')}
+      >
+        <Text
+          style={{
+            color: 'white',
+            fontFamily: 'monospace',
+            fontSize: '15px'
+          }}
+        >
+          Salvar
+        </Text>
+      </TouchableOpacity>
+    </View>
+}
+
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Foo App" component={HomeScreen} />
+        {/* <Stack.Screen name="Foo App" component={HomeScreen} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Criar conta" component={CriarConta} />
+        <Stack.Screen name="Adicionar" component={Adicionar} /> */}
+        <Stack.Screen name="Contatos" component={Contatos} />
       </Stack.Navigator>
     </NavigationContainer>
   );
