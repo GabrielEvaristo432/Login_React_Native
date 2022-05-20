@@ -1,6 +1,8 @@
 import { Text, View, Button, TouchableOpacity } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 function HomeScreen({ navigation }) {
   return (
@@ -226,7 +228,7 @@ function CriarConta({ navigation }) {
           justifyContent: 'center',
           margin: 10
         }}
-        onPress={() => navigation.navigate('Contatos')}
+        onPress={() => navigation.navigate('Lista de contatos')}
       >
         <Text
           style={{
@@ -242,28 +244,38 @@ function CriarConta({ navigation }) {
   );
 }
 
-function Contatos ({ navigation }) {
+function ListaContatos ({ navigation }) {
   return(
     <View>
       <TouchableOpacity
         style={{
-          backgroundColor: '#BCBCBC'
+          display: 'flex',
+          flexDirection: 'row'
         }}
       >
-        <Text
-          style={{fontFamily: 'Roboto', fontSize: '22px'}}
-        >
-          Alanlove
-        </Text>
-        <Text
-          style={{fontFamily: 'Roboto', fontSize: '16px'}}
-        >
-          (68)99951-9090
-        </Text>
+        <View>
+          <Text
+            style={{ fontFamily: 'Roboto', fontSize: '22px' }}
+          >
+            Alanlove
+          </Text>
+          <Text
+            style={{ fontFamily: 'Roboto', fontSize: '16px' }}
+          >
+            (68)99951-9090
+          </Text>
+        </View>
+
+        <View>
+          <FontAwesomeIcon icon={faCoffee} />
+        </View>
+        
       </TouchableOpacity>
     </View>
   )
 }
+
+
 
 function Adicionar ({ navigation }) {
   <View 
@@ -349,7 +361,7 @@ function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Criar conta" component={CriarConta} />
         <Stack.Screen name="Adicionar" component={Adicionar} /> */}
-        <Stack.Screen name="Contatos" component={Contatos} />
+        <Stack.Screen name="Lista de contatos" component={ListaContatos} />
       </Stack.Navigator>
     </NavigationContainer>
   );
